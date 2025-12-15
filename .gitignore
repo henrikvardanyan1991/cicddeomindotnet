@@ -1,0 +1,90 @@
+# ==============================
+# .gitignore for C# / .NET projects
+# ==============================
+
+# Build Folders
+bin/
+obj/
+out/
+
+# Visual Studio / IDE files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+
+# OS Files
+*.DS_Store
+Thumbs.db
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# Publish output
+*.Publish.xml
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Temporary / cache
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Dotnet / Rider / JetBrains
+.idea/
+*.dotSettings.user
+*.DotSettings
+
+# Rider caches
+.idea/
+.idea_modules/
+.idea_workspace.xml
+
+# JetBrains Rider project files
+*.sln.iml
+
+# Resharper / Rider caches
+_ReSharper*/
+*.DotSettings.user
+*.resharper
+*.resharper.*
+
+# Others
+*.dbmdl
+*.pdb
+*.exe
+*.dll
+*.cache
+*.class
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.ipdb
+*.log
+*.tlog
+*.idb
+*.pdb
+*.lib
+*.vsix
+*.db
+
+# Ignore JetBrains Rider scratch files
+*.shelf
