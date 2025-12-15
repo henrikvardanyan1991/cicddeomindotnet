@@ -14,7 +14,7 @@ namespace MyApp
         {
             var calc = new Calculator();
             Console.WriteLine($"3 + 4 = {calc.Add(3,4)}");
-            Console.WriteLine($"7 - 1 = {calc.Subtract(7,2)}");
+            Console.WriteLine($"7 - 2 = {calc.Subtract(7,1)}");
         }
     }
 }
