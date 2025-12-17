@@ -30,14 +30,14 @@ jobs:
           restore-keys: |
             nuget-
 
-      # 4️⃣ Restore dependencies for both projects
+      # 4️⃣ Restore all dependencies via solution file
       - name: Restore dependencies
-        run: dotnet restore MyApp/MyApp.csproj MyApp.Tests/MyApp.Tests.csproj
+        run: dotnet restore MyApp.sln
 
-      # 5️⃣ Build both projects
-      - name: Build projects
-        run: dotnet build MyApp/MyApp.csproj MyApp.Tests/MyApp.Tests.csproj --configuration Release
+      # 5️⃣ Build all projects in Release configuration
+      - name: Build solution
+        run: dotnet build MyApp.sln --configuration Release
 
-      # 6️⃣ Run tests
+      # 6️⃣ Run all tests
       - name: Run tests
-        run: dotnet test MyApp.Tests/MyApp.Tests.csproj --configuration Release --verbosity normal
+        run: dotnet test MyApp.sln --configuration Release --verbosity normal
