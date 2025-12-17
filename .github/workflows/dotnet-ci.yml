@@ -1,0 +1,43 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ main, master ]   # triggers on main or master
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'
+
+      # 3️⃣ Cache NuGet packages for faster builds
+      - name: Cache NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            nuget-
+
+      # 4️⃣ Restore dependencies for both projects
+      - name: Restore dependencies
+        run: dotnet restore MyApp/MyApp.csproj MyApp.Tests/MyApp.Tests.csproj
+
+      # 5️⃣ Build both projects
+      - name: Build projects
+        run: dotnet build MyApp/MyApp.csproj MyApp.Tests/MyApp.Tests.csproj --configuration Release
+
+      # 6️⃣ Run tests
+      - name: Run tests
+        run: dotnet test MyApp.Tests/MyApp.Tests.csproj --configuration Release --verbosity normal
